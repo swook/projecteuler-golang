@@ -42,7 +42,7 @@ func main() {
 	strs = nil
 
 	trisums := make([][]int, lines)
-	for i := lines - 1; i > 0; i-- {
+	for i := lines - 1; i > -1; i-- {
 		trisums[i] = make([]int, i + 1)
 		for ii := 0; ii < i + 1; ii++ {
 			if i == lines - 1 {
@@ -56,11 +56,5 @@ func main() {
 			}
 		}
 	}
-
-	sum, pos := data[0][0], 0
-	for i := 1; i < lines; i++ {
-		if trisums[i][pos] < trisums[i][pos + 1] { pos++ }
-		sum += data[i][pos]
-	}
-	println("sum:", sum)
+	println(trisums[0][0])
 }
